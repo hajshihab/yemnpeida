@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇾🇪 ابدأ من هنا - يمن بيديا</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #edf2f7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .status-item.done {
+            color: #38a169;
+        }
+        .status-item.pending {
+            color: #d69e2e;
+        }
+        .icon {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        .steps {
+            margin: 30px 0;
+        }
+        .step {
+            background: #f7fafc;
+            border-right: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .step h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .step p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        .code {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            direction: ltr;
+            text-align: left;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .warning {
+            background: #fff5f5;
+            border-right: 4px solid #f56565;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .warning h4 {
+            color: #c53030;
+            margin-bottom: 8px;
+        }
+        .success {
+            background: #f0fff4;
+            border-right: 4px solid #38a169;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .success h4 {
+            color: #22543d;
+            margin-bottom: 8px;
+        }
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #5a67d8;
+        }
+        .links {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇾🇪 يمن بيديا</h1>
+        <p class="subtitle">موسوعة يمنية شاملة مع مساعد ذكاء صناعي</p>
+
+        <div class="status">
+            <h3>✅ ما تم إنجازه:</h3>
+            <div class="status-item done">
+                <span class="icon">✓</span>
+                <span>Node.js مثبت (v22.19.0)</span>
+            </div>
+            <div class="status-item done">
+                <span class="icon">✓</span>
+                <span>جميع المكتبات مثبتة (Backend + Frontend)</span>
+            </div>
+            <div class="status-item done">
+                <span class="icon">✓</span>
+                <span>ملفات البيئة (.env) منشأة</span>
+            </div>
+            <div class="status-item done">
+                <span class="icon">✓</span>
+                <span>المشروع جاهز 95%</span>
+            </div>
+        </div>
+
+        <div class="warning">
+            <h4>⚠️ خطوة مهمة واحدة متبقية:</h4>
+            <p><strong>إعداد قاعدة البيانات MongoDB</strong> - لأن MongoDB غير مثبت على جهازك</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <h3>📋 الخطوة 1: إنشاء حساب MongoDB Atlas (مجاني)</h3>
+                <p>MongoDB Atlas هي قاعدة بيانات سحابية مجانية (512 MB):</p>
+                <ol style="margin-right: 20px; line-height: 2;">
+                    <li>اذهب إلى: <a href="https://www.mongodb.com/cloud/atlas/register" target="_blank">https://www.mongodb.com/cloud/atlas/register</a></li>
+                    <li>سجل حساب جديد (يمكنك استخدام Google)</li>
+                    <li>اختر <strong>M0 Free Tier</strong></li>
+                    <li>أنشئ مستخدم وكلمة مرور</li>
+                    <li>اسمح بالوصول من <strong>0.0.0.0/0</strong> (من أي مكان)</li>
+                    <li>احصل على <strong>Connection String</strong></li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>🔗 الخطوة 2: تحديث ملف .env</h3>
+                <p>افتح الملف التالي:</p>
+                <div class="code">c:\Users\utilisateur\Desktop\Nouveau dossier (4)\yemen-pedia\backend\.env</div>
+                <p>واستبدل السطر:</p>
+                <div class="code">MONGODB_URI=mongodb://localhost:27017/yemenpedia</div>
+                <p>برابط الاتصال من MongoDB Atlas:</p>
+                <div class="code">MONGODB_URI=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/yemenpedia?retryWrites=true&w=majority</div>
+            </div>
+
+            <div class="step">
+                <h3>🔑 الخطوة 3: مفتاح AI (اختياري)</h3>
+                <p>للمساعد الذكي، احصل على مفتاح من OpenAI:</p>
+                <ol style="margin-right: 20px; line-height: 2;">
+                    <li>سجل في: <a href="https://platform.openai.com/signup" target="_blank">https://platform.openai.com/signup</a></li>
+                    <li>اذهب إلى: <a href="https://platform.openai.com/api-keys" target="_blank">API Keys</a></li>
+                    <li>أنشئ مفتاح جديد</li>
+                    <li>أضفه في ملف <code>.env</code>:</li>
+                </ol>
+                <div class="code">AI_API_KEY=sk-proj-xxxxxxxxxxxxxxx</div>
+                <p><em>ملاحظة: يمكنك تخطي هذه الخطوة مؤقتاً، لكن المساعد الذكي لن يعمل</em></p>
+            </div>
+
+            <div class="step">
+                <h3>▶️ الخطوة 4: تشغيل المشروع</h3>
+                <p><strong>نافذة 1 - Backend:</strong></p>
+                <div class="code">cd "c:\Users\utilisateur\Desktop\Nouveau dossier (4)\yemen-pedia\backend"
+npm start</div>
+
+                <p style="margin-top: 20px;"><strong>نافذة 2 - Frontend:</strong></p>
+                <div class="code">cd "c:\Users\utilisateur\Desktop\Nouveau dossier (4)\yemen-pedia\frontend"
+npm start</div>
+
+                <p style="margin-top: 20px;"><strong>نافذة 3 - إضافة التصنيفات (مرة واحدة):</strong></p>
+                <div class="code">cd "c:\Users\utilisateur\Desktop\Nouveau dossier (4)\yemen-pedia\database"
+node seed-categories.js</div>
+            </div>
+        </div>
+
+        <div class="success">
+            <h4>🎉 بعد التشغيل:</h4>
+            <p>افتح المتصفح: <strong>http://localhost:3000</strong></p>
+            <p>أنشئ حساب وابدأ باستخدام يمن بيديا!</p>
+        </div>
+
+        <div class="links">
+            <h3 style="margin-bottom: 20px;">📚 ملفات مساعدة:</h3>
+            <a href="file:///c:/Users/utilisateur/Desktop/Nouveau dossier (4)/yemen-pedia/HOW_TO_RUN.md" class="button">📖 دليل التشغيل الكامل</a>
+            <a href="file:///c:/Users/utilisateur/Desktop/Nouveau dossier (4)/yemen-pedia/README.md" class="button">📘 README</a>
+            <a href="file:///c:/Users/utilisateur/Desktop/Nouveau dossier (4)/yemen-pedia/QUICK_START.md" class="button">⚡ البدء السريع</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #718096;">
+            <p>صُنع بـ ❤️ من أجل اليمن 🇾🇪</p>
+        </div>
+    </div>
+</body>
+</html>
