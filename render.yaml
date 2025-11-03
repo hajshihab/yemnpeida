@@ -1,0 +1,64 @@
+# Render Deployment Configuration for Yemen-Pedia
+# This file configures both backend and frontend services
+
+services:
+  # Backend API Service
+  - type: web
+    name: yemen-pedia-api
+    runtime: node
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: bash build.sh
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false  # Set this manually in Render dashboard (sensitive)
+      - key: JWT_SECRET
+        generateValue: true  # Render will auto-generate a secure random value
+      - key: AI_API_KEY
+        sync: false  # Set this manually if you want AI features
+      - key: AI_API_PROVIDER
+        value: openai
+      - key: FRONTEND_URL
+        value: https://yemen-pedia.onrender.com
+
+  # Frontend Static Site
+  - type: web
+    name: yemen-pedia
+    runtime: static
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://yemen-pedia-api.onrender.com/api
+
+# Database (MongoDB Atlas - External)
+# You need to create a MongoDB Atlas cluster separately
+# Then add the connection string to MONGODB_URI in Render dashboard
+
+# Notes:
+# 1. This uses Render's free tier for both services
+# 2. JWT_SECRET will be auto-generated for security
+# 3. You need to manually set MONGODB_URI in Render dashboard
+# 4. For AI features, set AI_API_KEY in Render dashboard
+# 5. Update MONGODB_URI with your actual MongoDB Atlas connection string
