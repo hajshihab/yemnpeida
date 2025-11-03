@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 import { FiSearch, FiMenu, FiX, FiUser, FiLogOut, FiEdit, FiHome, FiBook, FiStar, FiActivity, FiInfo, FiHelpCircle, FiFileText } from 'react-icons/fi';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,9 +56,12 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4 space-x-reverse">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             <Link to="/" className="flex items-center space-x-1 space-x-reverse text-gray-700 hover:text-primary-600">
               <FiHome />
-              <span>الرئيسية</span>
+              <span>{t('nav.home')}</span>
             </Link>
 
             <Link to="/categories" className="flex items-center space-x-1 space-x-reverse text-gray-700 hover:text-primary-600">

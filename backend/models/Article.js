@@ -57,8 +57,31 @@ const articleSchema = new mongoose.Schema({
   language: {
     type: String,
     default: 'ar',
-    enum: ['ar', 'en']
+    enum: ['ar', 'en', 'fr', 'es', 'de', 'it', 'pt', 'ru', 'zh', 'ja', 'ko', 'hi', 'bn', 'ur', 'tr', 'fa', 'id', 'ms', 'sw', 'nl']
   },
+  translations: [{
+    language: {
+      type: String,
+      required: true,
+      enum: ['ar', 'en', 'fr', 'es', 'de', 'it', 'pt', 'ru', 'zh', 'ja', 'ko', 'hi', 'bn', 'ur', 'tr', 'fa', 'id', 'ms', 'sw', 'nl']
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    slug: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    },
+    summary: {
+      type: String,
+      maxlength: 500
+    }
+  }],
   status: {
     type: String,
     enum: ['draft', 'published', 'archived'],
